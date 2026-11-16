@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Control de Arrobas</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%238b5cf6'/><text x='50' y='70' font-size='62' text-anchor='middle' fill='white'>½</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div id="toasts" aria-live="polite"></div>
+<div id="modal-root"></div>
+
+<section id="auth" class="auth hidden">
+  <form id="login-form" class="auth-card" autocomplete="on">
+    <div class="brand big"><span class="mark">½</span><span>Control de Arrobas</span></div>
+    <p class="muted">Inicia sesión para consultar los registros.</p>
+    <label>Correo<input name="email" type="email" required autocomplete="username"></label>
+    <label>Contraseña<input name="password" type="password" required autocomplete="current-password"></label>
+    <button class="btn primary" type="submit">Iniciar sesión</button>
+  </form>
+  <form id="pass-form" class="auth-card hidden" autocomplete="off">
+    <div class="brand big"><span class="mark">½</span><span>Crea tu contraseña</span></div>
+    <p class="muted">Bienvenido. Elige una contraseña de al menos 8 caracteres para entrar como lector.</p>
+    <label>Nueva contraseña<input name="p1" type="password" minlength="8" required autocomplete="new-password"></label>
+    <label>Repite la contraseña<input name="p2" type="password" minlength="8" required autocomplete="new-password"></label>
+    <button class="btn primary" type="submit">Guardar y entrar</button>
+  </form>
+</section>
+
+<div id="app" class="app hidden">
+  <aside id="sidebar" class="sidebar">
+    <div class="brand"><span class="mark">½</span><span>Control de Arrobas</span></div>
+    <nav id="nav"></nav>
+    <div class="side-foot"><div id="who" class="muted small"></div><button class="btn ghost" id="logout">Cerrar sesión</button></div>
+  </aside>
+  <div class="main">
+    <header class="topbar">
+      <button class="icon-btn menu-btn" id="menu" aria-label="Menú"></button>
+      <select id="cut-select" aria-label="Corte activo"></select>
+      <form id="search-form" class="search" role="search"><input id="search" type="search" placeholder="Buscar trabajadores, fechas, cortes, registros" aria-label="Buscar"></form>
+      <button class="icon-btn" id="bell" aria-label="Notificaciones"></button>
+    </header>
+    <main id="view" class="view" tabindex="-1"></main>
+    <footer class="footer">© Derechos Reservados. Control de Arrobas.</footer>
+  </div>
+</div>
+<div id="notif-panel" class="notif hidden"></div>
+<script src="/js/api.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>
